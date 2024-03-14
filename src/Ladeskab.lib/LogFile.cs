@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ladeskab.lib
 {
-    public class Log
+    public class Log : ILog
     {
         //private LogFile;
         public void ReadLog()

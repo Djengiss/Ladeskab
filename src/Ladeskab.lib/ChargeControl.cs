@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ladeskab.lib
 {
-    public class ChargeControl
+    public class ChargeControl : IChargeControl
     {
         private bool _IsConnected = false;
         private bool _IsCharging = false;
@@ -21,12 +21,12 @@ namespace Ladeskab.lib
             return _IsCharging;
         }
 
-        public void StartCharge() 
-        { 
-            _IsCharging = true; 
+        public void StartCharge()
+        {
+            _IsCharging = true;
         }
-        public void StopCharge() 
-        { 
+        public void StopCharge()
+        {
             _IsCharging = false;
         }
         public void Connect()

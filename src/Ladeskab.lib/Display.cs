@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ladeskab.lib
 {
-    public class Display
+    public class Display : IDisplay
     {
         private string displayText = "Empty";
         private int charge = 0;
