@@ -1,4 +1,4 @@
-﻿namespace Ladeskab.lib
+﻿namespace Ladeskab.lib.Interfaces
 {
     public interface ILog
     {
