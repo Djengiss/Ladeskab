@@ -12,6 +12,8 @@ namespace Ladeskab.lib
         private bool _connected = false;
         private bool _charging = false;
 
+        public bool Connected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public bool IsConnected()
         {
             return _connected;
