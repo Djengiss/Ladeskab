@@ -2,7 +2,7 @@
 {
     public interface IDoor
     {
-        void Lock();
-        void Unlock();
+        void LockDoor();
+        void UnlockDoor();
     }
 }

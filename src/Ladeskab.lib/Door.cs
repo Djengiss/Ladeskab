@@ -12,11 +12,11 @@ namespace Ladeskab.lib
         private bool isOpen;
         private bool isLocked;
 
-        public void Lock()
+        public void LockDoor()
         {
 
         }
-        public void Unlock()
+        public void UnlockDoor()
         {
 
         }

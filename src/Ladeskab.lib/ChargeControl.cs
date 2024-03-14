@@ -9,34 +9,34 @@ namespace Ladeskab.lib
 {
     public class ChargeControl : IChargeControl
     {
-        private bool _IsConnected = false;
-        private bool _IsCharging = false;
+        private bool _connected = false;
+        private bool _charging = false;
 
         public bool IsConnected()
         {
-            return _IsConnected;
+            return _connected;
         }
 
         public bool IsCharging()
         {
-            return _IsCharging;
+            return _charging;
         }
 
         public void StartCharge()
         {
-            _IsCharging = true;
+            _charging = true;
         }
         public void StopCharge()
         {
-            _IsCharging = false;
+            _charging = false;
         }
         public void Connect()
         {
-            _IsConnected = true;
+            _connected = true;
         }
         public void Disconnect()
         {
-            _IsConnected = false;
+            _connected = false;
         }
     }
 }

@@ -37,6 +37,7 @@ namespace Ladeskab.lib
                     // Check for ladeforbindelse
                     if (_charger.Connected)
                     {
+                       
                         _door.LockDoor();
                         _charger.StartCharge();
                         _oldId = id;
