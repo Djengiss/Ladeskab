@@ -1,4 +1,5 @@
-﻿namespace Ladeskab.lib
+﻿
+namespace Ladeskab.lib.Interfaces
 {
     public interface IRfidReader
     {
