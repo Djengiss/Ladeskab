@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ladeskab.lib
 {
-    public class RfidReader
+    public class RfidReader : IRfidReader
     {
         public string ReadRfid()
         {
