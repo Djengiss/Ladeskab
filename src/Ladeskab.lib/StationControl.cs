@@ -27,6 +27,12 @@ namespace Ladeskab.lib
         private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
         // Her mangler constructor
+        StationControl(IChargeControl charger, LadeskabState state, IDoor door)
+        {
+            _charger = charger;
+            _state = state;
+            _door = door;
+        }
 
         // Eksempel på event handler for eventet "RFID Detected" fra tilstandsdiagrammet for klassen
         private void RfidDetected(int id)
