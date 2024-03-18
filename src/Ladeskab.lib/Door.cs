@@ -19,6 +19,16 @@ namespace Ladeskab.lib.Interfaces
             OnDoorEvent(new DoorEventArgs(isLocked));
         }
 
+        public void OnDoorOpen()
+        {
+            isOpen = true;
+        }
+
+        public void OnDoorClose()
+        {
+            isOpen = false;
+        }
+
         protected virtual void OnDoorEvent(DoorEventArgs e)
         {
             DoorEvent?.Invoke(this, e);

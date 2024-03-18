@@ -13,6 +13,9 @@ namespace Ladeskab.lib
         {
             return string.Empty;
         }
+        public void OnRfidRead(int id)
+        {
+        }
 
         //event EventHandler RfidChanged;
     }
