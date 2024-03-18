@@ -1,8 +1,14 @@
-﻿    class Program
+﻿using System.Xml.Linq;
+using Ladeskab.lib.Interfaces;
+using Ladeskab.lib;
+
+class Program
     {
         static void Main(string[] args)
         {
-				// Assemble your system here from all the classes
+        // Assemble your system here from all the classes
+        IDoor door = new Door();
+        IRfidReader rfidReader = new RfidReader();
 
             bool finish = false;
             do
