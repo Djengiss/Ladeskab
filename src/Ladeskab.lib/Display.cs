@@ -14,12 +14,12 @@ namespace Ladeskab.lib
 
         public void UpdateDisplay(string newDisplayText)
         {
-
+            displayText = newDisplayText;
         }
 
         public void UpdateCharge(int percentage)
         {
-
+            charge = percentage >= 0 && percentage <= 100 ? percentage : charge;
         }
     }
 }

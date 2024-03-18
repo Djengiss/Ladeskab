@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ladeskab.lib.Interfaces;
 
-namespace Ladeskab.lib
+namespace Ladeskab.lib.Interfaces
 {
     public class Door : IDoor
     {
@@ -14,12 +9,31 @@ namespace Ladeskab.lib
 
         public void LockDoor()
         {
-
+            isLocked = true;
+            OnDoorEvent(new DoorEventArgs(isLocked));
         }
+
         public void UnlockDoor()
         {
-
+            isLocked = false;
+            OnDoorEvent(new DoorEventArgs(isLocked));
         }
-        //event EventHandler DoorOpened;
+
+        protected virtual void OnDoorEvent(DoorEventArgs e)
+        {
+            DoorEvent?.Invoke(this, e);
+        }
+
+        public event EventHandler<DoorEventArgs>? DoorEvent;
+
+        public class DoorEventArgs : EventArgs
+        {
+            public bool IsLocked { get; }
+
+            public DoorEventArgs(bool isLocked)
+            {
+                IsLocked = isLocked;
+            }
+        }
     }
 }
