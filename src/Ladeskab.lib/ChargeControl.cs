@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ladeskab.lib.Interfaces;
+using UsbSimulator;
 
 namespace Ladeskab.lib
 {
@@ -11,34 +12,25 @@ namespace Ladeskab.lib
     {
         IUsbCharger _usbCharger;
 
-        public bool Connected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public void SubscribeToEvent(UsbChargerSimulator source)
+        {
+            source.CurrentValueEvent += OnCurrentValueEventReceived;
+        }
 
         ChargeControl(IUsbCharger usbCharger)
         {
             _usbCharger = usbCharger;
         }
 
-        public bool IsConnected()
+        private void OnCurrentValueEventReceived(object sender, CurrentEventArgs e)
         {
-            return _usbCharger.Connected;
-        }
+            Console.WriteLine("The threshold was reached.");
 
-        public bool IsCharging()
-        {
-            if(_usbCharger.CurrentValue > 5 && _usbCharger.CurrentValue <= 500)
+            if (_usbCharger.Connected == true && _usbCharger.CurrentValue > 5 && _usbCharger.CurrentValue <= 500)
             {
-                return true;
+                _usbCharger.StartCharge();
             }
-            return false;
-        }
-
-        public void StartCharge()
-        {
-            _usbCharger.StartCharge();
-        }
-        public void StopCharge()
-        {
-            _usbCharger.StopCharge();
+            else _usbCharger?.StopCharge();
         }
     }
 }
