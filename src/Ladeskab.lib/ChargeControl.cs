@@ -9,36 +9,36 @@ namespace Ladeskab.lib
 {
     public class ChargeControl : IChargeControl
     {
-        private bool _connected = false;
-        private bool _charging = false;
+        IUsbCharger _usbCharger;
 
         public bool Connected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+        ChargeControl(IUsbCharger usbCharger)
+        {
+            _usbCharger = usbCharger;
+        }
+
         public bool IsConnected()
         {
-            return _connected;
+            return _usbCharger.Connected;
         }
 
         public bool IsCharging()
         {
-            return _charging;
+            if(_usbCharger.CurrentValue > 5 && _usbCharger.CurrentValue <= 500)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void StartCharge()
         {
-            _charging = true;
+            _usbCharger.StartCharge();
         }
         public void StopCharge()
         {
-            _charging = false;
-        }
-        public void Connect()
-        {
-            _connected = true;
-        }
-        public void Disconnect()
-        {
-            _connected = false;
+            _usbCharger.StopCharge();
         }
     }
 }
