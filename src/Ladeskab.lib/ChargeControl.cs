@@ -12,6 +12,9 @@ namespace Ladeskab.lib
     {
         IUsbCharger _usbCharger;
 
+        public bool Connected { get; set; }
+        public double CurrentValue { get; private set; }
+
         public void SubscribeToEvent(UsbChargerSimulator source)
         {
             source.CurrentValueEvent += OnCurrentValueEventReceived;
@@ -22,15 +25,24 @@ namespace Ladeskab.lib
             _usbCharger = usbCharger;
         }
 
-        private void OnCurrentValueEventReceived(object sender, CurrentEventArgs e)
+        public void StartCharge()
         {
-            Console.WriteLine("The threshold was reached.");
-
-            if (_usbCharger.Connected == true && _usbCharger.CurrentValue > 5 && _usbCharger.CurrentValue <= 500)
+            if (CurrentValue > 5 && CurrentValue <= 500)
             {
                 _usbCharger.StartCharge();
             }
-            else _usbCharger?.StopCharge();
+            else StopCharge();
+        }
+
+        public void StopCharge()
+        {
+            _usbCharger.StopCharge();
+        }
+
+        private void OnCurrentValueEventReceived(object sender, CurrentEventArgs e)
+        {
+            CurrentValue = _usbCharger.CurrentValue;
+            Connected = _usbCharger.Connected;
         }
     }
 }
