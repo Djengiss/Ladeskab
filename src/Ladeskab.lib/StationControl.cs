@@ -10,6 +10,7 @@ namespace Ladeskab.lib
 {
     public class StationControl
     {
+        
         // Enum med tilstande ("states") svarende til tilstandsdiagrammet for klassen
         private enum LadeskabState
         {
@@ -89,6 +90,9 @@ namespace Ladeskab.lib
             }
         }
 
-        // Her mangler de andre trigger handlere
+        private void OnRFIDEventReceived(object sender, CurrentEventArgs e)
+        {
+            
+        }
     }
 }
