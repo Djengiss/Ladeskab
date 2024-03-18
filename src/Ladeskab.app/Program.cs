@@ -3,7 +3,7 @@ using Ladeskab.lib.Interfaces;
 using Ladeskab.lib;
 
 class Program
-    {
+{
         static void Main(string[] args)
         {
         // Assemble your system here from all the classes
@@ -47,4 +47,3 @@ class Program
             } while (!finish);
         }
     }
-}

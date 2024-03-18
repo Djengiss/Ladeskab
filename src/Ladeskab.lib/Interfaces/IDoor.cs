@@ -7,6 +7,9 @@ namespace Ladeskab.lib.Interfaces
         void LockDoor();
         void UnlockDoor();
 
+        void OnDoorOpen();
+        void OnDoorClose();
+
         event EventHandler<DoorEventArgs>? DoorEvent;
     }
 }
