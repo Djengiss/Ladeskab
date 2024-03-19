@@ -26,5 +26,19 @@ namespace Ladeskab.test
             _displayMock = Substitute.For<IDisplay>();
             _rfidReaderMock = Substitute.For<RfidReader>();
         }
+
+        [Test]
+        public void RfidDetected_WhenRfidChangesEvent()
+        {
+            // Arrange
+            int expectedRfidValue = 20; // Adjust the expected value
+
+
+            // Act
+            //_rfidReaderMock.Raise(r => r.RfidChanged += null, new RfidEventArgs(expectedRfidValue));
+
+            // Assert
+            //Assert.That(expectedRfidValue, Is.EqualTo(_uut.CurrentValue)); // Update assertion
+        }
     }
 }
