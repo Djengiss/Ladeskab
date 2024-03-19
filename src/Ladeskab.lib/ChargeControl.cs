@@ -30,14 +30,20 @@ namespace Ladeskab.lib
         {
             if (CurrentValue > 5 && CurrentValue <= 500)
             {
-                _usbCharger.StartCharge(); 
+                _usbCharger.StartCharge();
+                _display.IsCharging();
             }
-            else StopCharge();
+            else
+            {
+                StopCharge();
+                _display.IsNotCharging();
+            }
         }
 
         public void StopCharge()
         {
             _usbCharger.StopCharge();
+            _display.IsNotCharging();
         }
 
         private void OnCurrentValueEventReceived(object sender, CurrentEventArgs e)
