@@ -2,7 +2,11 @@
 {
     public interface IDisplay
     {
-        void UpdateCharge(int percentage);
-        void UpdateDisplay(string newDisplayText);
+        void FjernTlf();
+        void IndlæsRFID();
+        void Optaget();
+        void RFIDfejl();
+        void Tilslutningsfejl();
+        void TilslutTlf();
     }
 }

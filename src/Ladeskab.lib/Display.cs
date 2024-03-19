@@ -9,17 +9,42 @@ namespace Ladeskab.lib
 {
     public class Display : IDisplay
     {
-        private string displayText = "Empty";
+        private string displayText;
         private int charge = 0;
 
-        public void UpdateDisplay(string newDisplayText)
+        public Display()
         {
-            displayText = newDisplayText;
+            TilslutTlf();
         }
 
-        public void UpdateCharge(int percentage)
+        public void TilslutTlf()
         {
-            charge = percentage >= 0 && percentage <= 100 ? percentage : charge;
+            displayText = "Tilslut Telefon.";
+        }
+
+        public void IndlæsRFID()
+        {
+            displayText = "Indlæs RFID.";
+        }
+
+        public void Tilslutningsfejl()
+        {
+            displayText = "Tilslutningsfejl.";
+        }
+
+        public void Optaget()
+        {
+            displayText = "Ladeskab Optaget.";
+        }
+
+        public void RFIDfejl()
+        {
+            displayText = "RFID Fejl.";
+        }
+
+        public void FjernTlf()
+        {
+            displayText = "Fjern Telefon.";
         }
     }
 }
