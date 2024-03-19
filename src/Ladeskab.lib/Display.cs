@@ -18,6 +18,7 @@ namespace Ladeskab.lib
         public void TilslutTlf()
         {
             displayText = "Tilslut Telefon.";
+            updateDisplay();
         }
 
         public void IndlæsRFID()
@@ -48,6 +49,11 @@ namespace Ladeskab.lib
         public void UpdateCharge()
         {
 
+        }
+
+        public void updateDisplay()
+        {
+            Console.WriteLine(displayText);
         }
     }
 }
