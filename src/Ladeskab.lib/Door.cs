@@ -10,23 +10,23 @@ namespace Ladeskab.lib.Interfaces
         public void LockDoor()
         {
             isLocked = true;
-            OnDoorEvent(new DoorEventArgs(isLocked));
         }
 
         public void UnlockDoor()
         {
             isLocked = false;
-            OnDoorEvent(new DoorEventArgs(isLocked));
         }
 
         public void OnDoorOpen()
         {
             isOpen = true;
+            OnDoorEvent(new DoorEventArgs(isOpen));
         }
 
         public void OnDoorClose()
         {
             isOpen = false;
+            OnDoorEvent(new DoorEventArgs(isOpen));
         }
 
         protected virtual void OnDoorEvent(DoorEventArgs e)
@@ -38,11 +38,11 @@ namespace Ladeskab.lib.Interfaces
 
         public class DoorEventArgs : EventArgs
         {
-            public bool IsLocked { get; }
+            public bool IsOpen { get; }
 
-            public DoorEventArgs(bool isLocked)
+            public DoorEventArgs(bool isOpen)
             {
-                IsLocked = isLocked;
+                IsOpen = isOpen;
             }
         }
     }
