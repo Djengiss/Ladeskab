@@ -38,7 +38,17 @@ namespace Ladeskab.test
         [Test]
         public void StartCharge_WhenCurrentValueBelowValidRange_StopsCharge()
         {
-            
+            // Arrange
+            double outOfCurrentValue = 4.0; // Value above the valid range
+            _uut.SubscribeToEvent(_usbChargerMock);
+
+            // Act
+            _usbChargerMock.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = outOfCurrentValue });
+
+            // Assert
+            _usbChargerMock.Received(1).StopCharge(); // Assuming _usbChargerMock is the correct object to expect the StopCharge call.
+
+
         }
 
         [Test]
