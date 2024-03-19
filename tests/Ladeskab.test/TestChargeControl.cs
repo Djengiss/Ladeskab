@@ -25,6 +25,7 @@ namespace Ladeskab.test
         {
             double expectedCurrentValue = 20.0;
             _usbChargerMock.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = expectedCurrentValue });
+            
 
             // Assert
             Assert.That(expectedCurrentValue, Is.EqualTo(_chargeControl.CurrentValue));
@@ -33,6 +34,15 @@ namespace Ladeskab.test
         [Test]
         public void StartCharge_WhenCurrentValueBelowValidRange_StopsCharge()
         {
+            // Arange
+            _usbChargerMock.CurrentValue.Returns(0);
+            _uut.StopCharge();
+
+            // act
+            _uut.StartCharge();
+
+            // assert
+            _usbChargerMock.Received(1).StopCharge();
         }
 
         [Test]
