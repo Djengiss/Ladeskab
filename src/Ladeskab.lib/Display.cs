@@ -9,18 +9,16 @@ namespace Ladeskab.lib
 {
     public class Display : IDisplay
     {
-        IChargeControl _chargeControl;
-        private string displayText = "";
-        private string chargeText = "";
-        private double charge = 0;
 
-        public Display() 
-        {    
-        }
+        private string displayText = "";
+        private int charge = 0;
+
+        public Display() { }
 
         public void TilslutTlf()
         {
             displayText = "Tilslut Telefon.";
+            updateDisplay();
         }
 
         public void IndlæsRFID()
@@ -48,9 +46,14 @@ namespace Ladeskab.lib
             displayText = "Fjern Telefon.";
         }
 
-        public void LaderTilstand()
+        public void UpdateCharge()
         {
-            charge = _chargeControl.CurrentValue;
+
+        }
+
+        public void updateDisplay()
+        {
+            Console.WriteLine(displayText);
         }
     }
 }
