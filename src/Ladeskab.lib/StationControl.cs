@@ -24,6 +24,7 @@ namespace Ladeskab.lib
         private IChargeControl _charger;
         private int _oldId;
         private IDoor _door;
+        private IDisplay _display;
 
         private string logFile = "logfile.txt"; // Navnet på systemets log-fil
 
@@ -47,17 +48,18 @@ namespace Ladeskab.lib
                        
                         _door.LockDoor();
                         _charger.StartCharge();
+                        _display.Optaget(); // Display viser Optaget
                         _oldId = id;
                         using (var writer = File.AppendText(logFile))
                         {
                             writer.WriteLine(DateTime.Now + ": Skab låst med RFID: {0}", id);
                         }
-
                         Console.WriteLine("Skabet er låst og din telefon lades. Brug dit RFID tag til at låse op.");
                         _state = LadeskabState.Locked;
                     }
                     else
                     {
+                        _display.RFIDfejl();
                         Console.WriteLine("Din telefon er ikke ordentlig tilsluttet. Prøv igen.");
                     }
 
@@ -73,11 +75,12 @@ namespace Ladeskab.lib
                     {
                         _charger.StopCharge();
                         _door.UnlockDoor();
+                        _display.FjernTlf(); // display viser fjern telefon
                         using (var writer = File.AppendText(logFile))
                         {
                             writer.WriteLine(DateTime.Now + ": Skab låst op med RFID: {0}", id);
                         }
-
+                        
                         Console.WriteLine("Tag din telefon ud af skabet og luk døren");
                         _state = LadeskabState.Available;
                     }
