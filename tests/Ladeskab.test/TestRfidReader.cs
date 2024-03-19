@@ -30,5 +30,18 @@ namespace Ladeskab.test
             // Assert
             Assert.That(eventRaised, Is.EqualTo(007));
         }
+        [Test]
+        public void rfidReader_ScannedIlligalIDEventNotRaised()
+        {
+            // Arrange
+            int eventRaised = -1;
+            _uut.RfidChanged += (sender, args) => { eventRaised = args; };
+
+            // Act
+            _uut.OnRfidRead(-7);
+
+            // Assert
+            Assert.That(eventRaised, Is.EqualTo(-1));
+        }
     }
 }
