@@ -8,5 +8,7 @@
         void RFIDfejl();
         void Tilslutningsfejl();
         void TilslutTlf();
+        void IsCharging();
+        void IsNotCharging();
     }
 }

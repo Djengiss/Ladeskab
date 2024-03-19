@@ -9,53 +9,64 @@ namespace Ladeskab.lib
 {
     public class Display : IDisplay
     {
-
+        IChargeControl _chargeControl;
         private string displayText = "";
-        private int charge = 0;
 
         public Display() 
         {    
         }
 
+        public void ClearDisplay()
+        {
+            displayText = string.Empty;
+        }
+
         public void TilslutTlf()
         {
-            displayText = "Tilslut Telefon.";
-            updateDisplay();
+            displayText = "Bruger info: Tilslut Telefon.";
+            Console.WriteLine("Bruger info: Tilslut Telefon.");
         }
 
         public void IndlæsRFID()
         {
-            displayText = "Indlæs RFID.";
+            displayText = "Bruger info: Indlæs RFID.";
+            Console.WriteLine("Bruger info: Indlæs RFID.");
         }
 
         public void Tilslutningsfejl()
         {
-            displayText = "Tilslutningsfejl.";
+            displayText = "Bruger info: Tilslutningsfejl.";
+            Console.WriteLine("Bruger info: Tilslutningsfejl.");
         }
 
         public void Optaget()
         {
-            displayText = "Ladeskab Optaget.";
+            displayText = "Bruger info: Ladeskab Optaget.";
+            Console.WriteLine("Bruger info: Ladeskab Optaget.");
         }
 
         public void RFIDfejl()
         {
-            displayText = "RFID Fejl.";
+            displayText = "Bruger info: RFID Fejl";   
+            Console.WriteLine("Bruger info: RFID Fejl.");
         }
 
         public void FjernTlf()
         {
-            displayText = "Fjern Telefon.";
+            displayText = "Bruger info: Fjern Telefon";
+            Console.WriteLine("Bruger info: Fjern Telefon");
         }
 
-        public void UpdateCharge()
+        public void IsCharging()
         {
-
+            displayText = "Ladestatus: Telefon lader.";
+            Console.WriteLine("Ladestatus: Telefon lader.");
         }
 
-        public void updateDisplay()
+        public void IsNotCharging()
         {
-            Console.WriteLine(displayText);
+            displayText = "Ladestatus: Telefon lader ikke.";   
+            Console.WriteLine("Ladestatus: Telefon lader ikke.");
         }
     }
 }
