@@ -4,12 +4,15 @@ namespace Ladeskab.lib.Interfaces
 {
     public class Door : IDoor
     {
-        private bool isOpen;
-        private bool isLocked;
+        public bool isOpen { get; private set; } = false;
+        public bool isLocked { get; private set; } = false;
 
         public void LockDoor()
         {
-            isLocked = true;
+            if (!isOpen)
+            {
+                isLocked = true;
+            }
         }
 
         public void UnlockDoor()
@@ -19,8 +22,11 @@ namespace Ladeskab.lib.Interfaces
 
         public void OnDoorOpen()
         {
-            isOpen = true;
-            OnDoorEvent(new DoorEventArgs(isOpen));
+            if (!isLocked)
+            {
+                isOpen = true;
+                OnDoorEvent(new DoorEventArgs(isOpen));
+            }
         }
 
         public void OnDoorClose()
