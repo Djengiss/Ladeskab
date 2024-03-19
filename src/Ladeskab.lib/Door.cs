@@ -4,21 +4,39 @@ namespace Ladeskab.lib.Interfaces
 {
     public class Door : IDoor
     {
-        private bool isOpen;
-        private bool isLocked;
+        public bool isOpen { get; private set; } = false;
+        public bool isLocked { get; private set; } = false;
 
         public void LockDoor()
         {
-            isLocked = true;
-            OnDoorEvent(new DoorEventArgs(isLocked));
+            if (!isOpen)
+            {
+                isLocked = true;
+            }
         }
 
         public void UnlockDoor()
         {
             isLocked = false;
-            OnDoorEvent(new DoorEventArgs(isLocked));
         }
 
+        public void OnDoorOpen()
+        {
+            if (!isLocked && !isOpen)
+            {
+                isOpen = true;
+                OnDoorEvent(new DoorEventArgs(isOpen));
+            }
+        }
+
+        public void OnDoorClose()
+        {
+            if (isOpen)
+            { 
+                isOpen = false;
+                OnDoorEvent(new DoorEventArgs(isOpen));
+            }
+        }
         protected virtual void OnDoorEvent(DoorEventArgs e)
         {
             DoorEvent?.Invoke(this, e);
@@ -28,11 +46,11 @@ namespace Ladeskab.lib.Interfaces
 
         public class DoorEventArgs : EventArgs
         {
-            public bool IsLocked { get; }
+            public bool IsOpen { get; }
 
-            public DoorEventArgs(bool isLocked)
+            public DoorEventArgs(bool isOpen)
             {
-                IsLocked = isLocked;
+                IsOpen = isOpen;
             }
         }
     }

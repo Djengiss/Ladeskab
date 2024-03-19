@@ -9,11 +9,16 @@ namespace Ladeskab.lib
 {
     public class RfidReader : IRfidReader
     {
-        public string ReadRfid()
+        private int _currentRFID = -1;
+        public event EventHandler<int> RfidChanged;
+        public void OnRfidRead(int id)
         {
-            return string.Empty;
+            if (id>0 && id< 999999999) //If Legal RFID
+            {
+                _currentRFID = id;
+                RfidChanged?.Invoke(this, _currentRFID);
+                _currentRFID = -1;
+            }
         }
-
-        //event EventHandler RfidChanged;
     }
 }

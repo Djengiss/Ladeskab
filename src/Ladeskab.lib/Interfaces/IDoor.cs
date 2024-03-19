@@ -4,8 +4,13 @@ namespace Ladeskab.lib.Interfaces
 {
     public interface IDoor
     {
+        bool isOpen { get; } 
+        bool isLocked { get; }
         void LockDoor();
         void UnlockDoor();
+
+        void OnDoorOpen();
+        void OnDoorClose();
 
         event EventHandler<DoorEventArgs>? DoorEvent;
     }

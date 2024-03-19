@@ -3,6 +3,7 @@ namespace Ladeskab.lib.Interfaces
 {
     public interface IRfidReader
     {
-        string ReadRfid();
+        event EventHandler<int> RfidChanged;
+        void OnRfidRead(int id);
     }
 }
