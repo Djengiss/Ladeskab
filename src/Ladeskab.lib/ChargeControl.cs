@@ -21,9 +21,10 @@ namespace Ladeskab.lib
             source.CurrentValueEvent += OnCurrentValueEventReceived;
         }
 
-        ChargeControl(IUsbCharger usbCharger)
+        public ChargeControl(IUsbCharger usbCharger, IDisplay display)
         {
             _usbCharger = usbCharger;
+            _display = display;
         }
 
         public void StartCharge()

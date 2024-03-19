@@ -57,6 +57,7 @@ namespace Ladeskab.test
         [Test]
         public void ReadLog_ReadsLogFileContents()
         {
+            // Arrange
             string logMessage1 = "Door unlocked by 123";
             string logMessage2 = "Door locked by 456";
             File.AppendAllText(testLogFilePath, $"{DateTime.Now}: {logMessage1}\n");

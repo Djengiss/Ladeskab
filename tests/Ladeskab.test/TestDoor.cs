@@ -22,6 +22,8 @@ namespace Ladeskab.test
         public void door_Closed_LockIsLocked()
         {
             // Arrange
+
+            // Act
             _uut.LockDoor();
             
             // Assert
