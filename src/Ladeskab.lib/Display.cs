@@ -13,7 +13,9 @@ namespace Ladeskab.lib
         private string displayText = "";
         private int charge = 0;
 
-        public Display() { }
+        public Display() 
+        {    
+        }
 
         public void TilslutTlf()
         {
