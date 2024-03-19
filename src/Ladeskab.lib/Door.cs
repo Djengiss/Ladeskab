@@ -22,7 +22,7 @@ namespace Ladeskab.lib.Interfaces
 
         public void OnDoorOpen()
         {
-            if (!isLocked)
+            if (!isLocked && !isOpen)
             {
                 isOpen = true;
                 OnDoorEvent(new DoorEventArgs(isOpen));
@@ -31,10 +31,12 @@ namespace Ladeskab.lib.Interfaces
 
         public void OnDoorClose()
         {
-            isOpen = false;
-            OnDoorEvent(new DoorEventArgs(isOpen));
+            if (isOpen)
+            { 
+                isOpen = false;
+                OnDoorEvent(new DoorEventArgs(isOpen));
+            }
         }
-
         protected virtual void OnDoorEvent(DoorEventArgs e)
         {
             DoorEvent?.Invoke(this, e);
