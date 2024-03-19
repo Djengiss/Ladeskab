@@ -2,8 +2,8 @@
 {
     public interface ILog
     {
-        void LogDoorLocked();
-        void LogDoorUnlocked();
         void ReadLog();
+        void LogDoorUnlocked(int rfid_ID);
+        void LogDoorLocked(int rfid_ID);
     }
 }
