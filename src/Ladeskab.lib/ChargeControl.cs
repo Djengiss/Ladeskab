@@ -11,6 +11,7 @@ namespace Ladeskab.lib
     public class ChargeControl : IChargeControl
     {
         IUsbCharger _usbCharger;
+        IDisplay _display;
 
         public bool Connected { get; set; }
         public double CurrentValue { get; private set; }
@@ -29,7 +30,7 @@ namespace Ladeskab.lib
         {
             if (CurrentValue > 5 && CurrentValue <= 500)
             {
-                _usbCharger.StartCharge();
+                _usbCharger.StartCharge(); 
             }
             else StopCharge();
         }
