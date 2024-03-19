@@ -50,6 +50,11 @@ namespace Ladeskab.lib
         private void OnCurrentValueEventReceived(object sender, CurrentEventArgs e)
         {
             CurrentValue = e.Current;
+            if (CurrentValue == 0)
+            {
+                Connected = false;
+            }
+            else Connected = true;
         }
     }
 }
