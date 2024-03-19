@@ -65,6 +65,20 @@ namespace Ladeskab.test
         }
 
         [Test]
+        public void StartCharge_WhenValueVlaidRange_StartCharge()
+        {
+            // Arrange
+            double validCurrentValue = 6;
+            _uut.SubscribeToEvent(_usbChargerMock);
+
+            // Act
+            _usbChargerMock.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = validCurrentValue });
+
+            // Assert
+            _usbChargerMock.Received(1).StartCharge();
+        }
+
+            [Test]
         public void StopCharge_StopsCharge()
         {
             // act
