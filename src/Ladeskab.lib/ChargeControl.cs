@@ -49,8 +49,7 @@ namespace Ladeskab.lib
 
         private void OnCurrentValueEventReceived(object sender, CurrentEventArgs e)
         {
-            CurrentValue = _usbCharger.CurrentValue;
-            Connected = _usbCharger.Connected;
+            CurrentValue = e.Current;
         }
     }
 }
