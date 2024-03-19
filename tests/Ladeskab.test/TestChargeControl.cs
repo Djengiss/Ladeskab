@@ -20,20 +20,19 @@ namespace Ladeskab.test
             _uut = new ChargeControl(_usbChargerMock, _displayMock);
         }
 
-        //[Test]
-        //public void StartCharge_WhenCurrentValueChangesEvent()
-        //{
-        //    // Arrange
-        //    double expectedCurrentValue = 20.0; // Adjust the expected value
-        //    _uut.SubscribeToEvent(_usbChargerMock);
+        [Test]
+        public void StartCharge_WhenCurrentValueChangesEvent()
+        {
+            // Arrange
+            double expectedCurrentValue = 20.0; // Adjust the expected value
+            _uut.SubscribeToEvent(_usbChargerMock);
 
-        //    // Act
-        //    _usbChargerMock.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = expectedCurrentValue });
-            
+            // Act
+            _usbChargerMock.CurrentValueEvent += Raise.EventWith(new CurrentEventArgs { Current = expectedCurrentValue });
 
-        //    // Assert
-        //    Assert.That(expectedCurrentValue, Is.EqualTo(_uut.CurrentValue)); // Update assertion
-        //}
+            // Assert
+            Assert.That(expectedCurrentValue, Is.EqualTo(_uut.CurrentValue)); // Update assertion
+        }
 
         [Test]
         public void StartCharge_WhenCurrentValueBelowValidRange_StopsCharge()

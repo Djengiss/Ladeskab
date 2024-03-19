@@ -39,7 +39,7 @@ namespace Ladeskab.lib
             else if (CurrentValue > 5 && CurrentValue <= 500) 
             {
                 Connected = true;
-                StartCharge();
+                _usbCharger.StartCharge();
             }
             else if (CurrentValue > 0 && CurrentValue <= 5)
             {
