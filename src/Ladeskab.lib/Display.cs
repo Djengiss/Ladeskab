@@ -39,6 +39,12 @@ namespace Ladeskab.lib
             Console.WriteLine("Bruger info: Tilslutningsfejl.");
         }
 
+        public void Óverload()
+        {
+            displayText = "Bruger info: KRITISK OVERLOAD FEJL, STOPPER LADNING!";
+            Console.WriteLine("Bruger info: KRITISK OVERLOAD FEJL, STOPPER LADNING!");
+        }
+
         public void Optaget()
         {
             displayText = "Bruger info: Ladeskab Optaget.";

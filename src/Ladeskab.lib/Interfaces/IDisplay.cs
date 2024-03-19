@@ -12,5 +12,6 @@
         void TilslutTlf();
         void IsCharging();
         void IsNotCharging();
+        void Overload();
     }
 }
