@@ -28,14 +28,15 @@ namespace Ladeskab.lib
                 Console.WriteLine($"Error reading log file: {ex.Message}");
             }
         }
-        public void LogDoorUnlocked()
+        public void LogDoorUnlocked(int rfid_ID)
         {
-            LogToFile("Door unlocked");
+            LogToFile($"Door unlocked by {rfid_ID}");
         }
-        public void LogDoorLocked()
+        public void LogDoorLocked(int rfid_ID)
         {
-            LogToFile("Door locked");
+            LogToFile($"Door locked by {rfid_ID}");
         }
+
         private void LogToFile(string logMessage)
         {
             try
