@@ -82,6 +82,7 @@ namespace Ladeskab.test
             Assert.That(eventRaised, Is.True);
         }
 
+
         [Test]
         public void door_Closed_RaisesDoorOpenedEvent()
         {
@@ -95,6 +96,21 @@ namespace Ladeskab.test
 
             // Assert
             Assert.That(eventRaised, Is.True);
+        }
+        [Test]
+        public void door_ClosedLocked_NotRaisesDoorOpenedEvent()
+        {
+            // Arrange
+            _uut.OnDoorClose();
+            _uut.LockDoor();
+            bool eventRaised = false;
+            _uut.DoorEvent += (sender, args) => { eventRaised = args.IsOpen; };
+
+            // Act
+            _uut.OnDoorOpen();
+
+            // Assert
+            Assert.That(eventRaised, Is.False);
         }
     }
 }
