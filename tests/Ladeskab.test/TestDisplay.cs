@@ -144,5 +144,19 @@ namespace Ladeskab.test
             Assert.That(_uut.displayText, Is.EqualTo("Ladestatus: Telefon lader ikke."));
 
         }
+
+        [Test]
+        public void display_overload_messageShown()
+        {
+            // Arrange
+            _uut.ClearDisplay();
+
+            // Act
+            _uut.Overload();
+
+            // Assert
+            Assert.That(_uut.displayText, Is.EqualTo("Bruger info: KRITISK OVERLOAD FEJL, STOPPER LADNING!"));
+
+        }
     }
 }
