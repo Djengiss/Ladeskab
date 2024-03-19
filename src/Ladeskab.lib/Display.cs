@@ -9,13 +9,10 @@ namespace Ladeskab.lib
 {
     public class Display : IDisplay
     {
-        private string displayText;
+        private string displayText = "Tilslut Telefon.";
         private int charge = 0;
 
-        public Display()
-        {
-            TilslutTlf();
-        }
+        public Display() { }
 
         public void TilslutTlf()
         {
