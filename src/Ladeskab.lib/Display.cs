@@ -10,7 +10,7 @@ namespace Ladeskab.lib
     public class Display : IDisplay
     {
         IChargeControl _chargeControl;
-        public string displayText { get; private set; } = "";
+        public string displayText { get; private set; }
 
         public Display() 
         {    

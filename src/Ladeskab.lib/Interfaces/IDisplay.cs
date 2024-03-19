@@ -2,6 +2,7 @@
 {
     public interface IDisplay
     {
+        public string displayText { get; }
         void ClearDisplay();
         void FjernTlf();
         void IndlæsRFID();

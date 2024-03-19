@@ -23,14 +23,13 @@ namespace Ladeskab.test
         {
             // Arrange
             _uut.TilslutTlf();
-
-            if()
+            Assert.That(_uut.displayText, Is.Not.EqualTo(""));
 
             // Act
             _uut.ClearDisplay();
 
             // Assert
-
+            Assert.That(_uut.displayText, Is.EqualTo(""));
             
         }
 
@@ -44,57 +43,58 @@ namespace Ladeskab.test
             _uut.TilslutTlf();
 
             // Assert
+            Assert.That(_uut.displayText, Is.EqualTo("Bruger info: Tilslut Telefon."));
 
         }
 
-        [Test]
-        public void display_action_assertation()
-        {
-            // Arrange
+        //[Test]
+        //public void display_action_assertation()
+        //{
+        //    // Arrange
 
-            // Act
+        //    // Act
 
-            // Assert
-        }
+        //    // Assert
+        //}
 
-        [Test]
-        public void display_action_assertation()
-        {
-            // Arrange
+        //[Test]
+        //public void display_action_assertation()
+        //{
+        //    // Arrange
 
-            // Act
+        //    // Act
 
-            // Assert
-        }
+        //    // Assert
+        //}
 
-        [Test]
-        public void display_action_assertation()
-        {
-            // Arrange
+        //[Test]
+        //public void display_action_assertation()
+        //{
+        //    // Arrange
 
-            // Act
+        //    // Act
 
-            // Assert
-        }
+        //    // Assert
+        //}
 
-        [Test]
-        public void display_action_assertation()
-        {
-            // Arrange
+        //[Test]
+        //public void display_action_assertation()
+        //{
+        //    // Arrange
 
-            // Act
+        //    // Act
 
-            // Assert
-        }
+        //    // Assert
+        //}
 
-        [Test]
-        public void display_action_assertation()
-        {
-            // Arrange
+        //[Test]
+        //public void display_action_assertation()
+        //{
+        //    // Arrange
 
-            // Act
+        //    // Act
 
-            // Assert
-        }
+        //    // Assert
+        //}
     }
 }
