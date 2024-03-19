@@ -34,15 +34,21 @@ namespace Ladeskab.lib
             {
                 Connected = true;
                 StopCharge();
+                _display.Overload();
             }
             else if (CurrentValue > 5 && CurrentValue < 500) 
             {
                 Connected = true;
                 StartCharge();
             }
-            else if (CurrentValue < 0 && CurrentValue < 5)
+            else if (CurrentValue > 0 && CurrentValue <= 5)
             {
                 Connected = true;
+                StopCharge();
+            }
+            else if (CurrentValue == 0)
+            {
+                Connected = false;
                 StopCharge();
             }
         }
