@@ -19,7 +19,6 @@ namespace Ladeskab.lib
         {
             try
             {
-                // Read and display the contents of the log file
                 string logContents = File.ReadAllText(logFilePath);
                 Console.WriteLine("Log contents:");
                 Console.WriteLine(logContents);
