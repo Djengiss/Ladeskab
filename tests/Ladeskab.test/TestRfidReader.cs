@@ -22,7 +22,7 @@ namespace Ladeskab.test
         {
             // Arrange
             int eventRaised = 0;
-            _uut.RfidChanged += (sender, args) => { eventRaised = args; };
+            _uut.RfidChanged += (sender, args) => { eventRaised = args.Rfid; };
 
             // Act
             _uut.OnRfidRead(007);
@@ -35,7 +35,7 @@ namespace Ladeskab.test
         {
             // Arrange
             int eventRaised = -1;
-            _uut.RfidChanged += (sender, args) => { eventRaised = args; };
+            _uut.RfidChanged += (sender, args) => { eventRaised = args.Rfid; };
 
             // Act
             _uut.OnRfidRead(-7);

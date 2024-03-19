@@ -36,6 +36,12 @@ namespace Ladeskab.lib
             _door = door;
         }
 
+        public void Subscribe(RfidReader reader)
+        {
+            reader.RfidChanged += OnRFIDEventReceived;
+        }
+
+
         // Eksempel på event handler for eventet "RFID Detected" fra tilstandsdiagrammet for klassen
         private void RfidDetected(int id)
         {
@@ -92,10 +98,9 @@ namespace Ladeskab.lib
                     break;
             }
         }
-
-        private void OnRFIDEventReceived(object sender, CurrentEventArgs e)
-        {
-            
+        private void OnRFIDEventReceived(object? sender, RfidEventArgs e)
+        {    
+            RfidDetected(e.Rfid);
         }
     }
 }
