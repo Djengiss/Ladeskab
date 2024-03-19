@@ -50,6 +50,8 @@ namespace Ladeskab.lib
             {
                 Connected = false;
                 StopCharge();
+                _display.Tilslutningsfejl();
+                
             }
         }
 
