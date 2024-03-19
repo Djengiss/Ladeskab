@@ -47,54 +47,102 @@ namespace Ladeskab.test
 
         }
 
-        //[Test]
-        //public void display_action_assertation()
-        //{
-        //    // Arrange
+        [Test]
+        public void display_indlæsRFID_messageShown()
+        {
+            // Arrange
+            _uut.ClearDisplay();
 
-        //    // Act
+            // Act
+            _uut.IndlæsRFID();
 
-        //    // Assert
-        //}
+            // Assert
+            Assert.That(_uut.displayText, Is.EqualTo("Bruger info: Indlæs RFID."));
 
-        //[Test]
-        //public void display_action_assertation()
-        //{
-        //    // Arrange
+        }
 
-        //    // Act
+        [Test]
+        public void display_tilslutningsfejl_messageShown()
+        {
+            // Arrange
+            _uut.ClearDisplay();
 
-        //    // Assert
-        //}
+            // Act
+            _uut.Tilslutningsfejl();
 
-        //[Test]
-        //public void display_action_assertation()
-        //{
-        //    // Arrange
+            // Assert
+            Assert.That(_uut.displayText, Is.EqualTo("Bruger info: Tilslutningsfejl."));
 
-        //    // Act
+        }
 
-        //    // Assert
-        //}
+        [Test]
+        public void display_optaget_messageShown()
+        {
+            // Arrange
+            _uut.ClearDisplay();
 
-        //[Test]
-        //public void display_action_assertation()
-        //{
-        //    // Arrange
+            // Act
+            _uut.Optaget();
 
-        //    // Act
+            // Assert
+            Assert.That(_uut.displayText, Is.EqualTo("Bruger info: Ladeskab Optaget."));
 
-        //    // Assert
-        //}
+        }
 
-        //[Test]
-        //public void display_action_assertation()
-        //{
-        //    // Arrange
+        [Test]
+        public void display_RFIDfejl_messageShown()
+        {
+            // Arrange
+            _uut.ClearDisplay();
 
-        //    // Act
+            // Act
+            _uut.RFIDfejl();
 
-        //    // Assert
-        //}
+            // Assert
+            Assert.That(_uut.displayText, Is.EqualTo("Bruger info: RFID Fejl"));
+
+        }
+
+        [Test]
+        public void display_fjernTlf_messageShown()
+        {
+            // Arrange
+            _uut.ClearDisplay();
+
+            // Act
+            _uut.FjernTlf();
+
+            // Assert
+            Assert.That(_uut.displayText, Is.EqualTo("Bruger info: Fjern Telefon"));
+
+        }
+
+        [Test]
+        public void display_isCharging_messageShown()
+        {
+            // Arrange
+            _uut.ClearDisplay();
+
+            // Act
+            _uut.IsCharging();
+
+            // Assert
+            Assert.That(_uut.displayText, Is.EqualTo("Ladestatus: Telefon lader."));
+
+        }
+
+        [Test]
+        public void display_isNotCharging_messageShown()
+        {
+            // Arrange
+            _uut.ClearDisplay();
+
+            // Act
+            _uut.IsNotCharging();
+
+            // Assert
+            Assert.That(_uut.displayText, Is.EqualTo("Ladestatus: Telefon lader ikke."));
+
+        }
     }
 }
