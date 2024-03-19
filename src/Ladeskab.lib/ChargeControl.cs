@@ -37,7 +37,6 @@ namespace Ladeskab.lib
             else
             {
                 StopCharge();
-                _display.IsNotCharging();
             }
         }
 
