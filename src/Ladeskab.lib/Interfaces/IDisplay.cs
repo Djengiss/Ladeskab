@@ -2,6 +2,7 @@
 {
     public interface IDisplay
     {
+        void ClearDisplay();
         void FjernTlf();
         void IndlæsRFID();
         void Optaget();

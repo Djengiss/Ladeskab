@@ -22,6 +22,15 @@ namespace Ladeskab.test
         public void display_clear_emptyString()
         {
             // Arrange
+            _uut.TilslutTlf();
+
+            if()
+
+            // Act
+            _uut.ClearDisplay();
+
+            // Assert
+
             
         }
 
@@ -35,6 +44,7 @@ namespace Ladeskab.test
             _uut.TilslutTlf();
 
             // Assert
+
         }
 
         [Test]
