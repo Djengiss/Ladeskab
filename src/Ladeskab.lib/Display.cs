@@ -9,7 +9,8 @@ namespace Ladeskab.lib
 {
     public class Display : IDisplay
     {
-        private string displayText = "Tilslut Telefon.";
+
+        private string displayText = "";
         private int charge = 0;
 
         public Display() { }
@@ -42,6 +43,11 @@ namespace Ladeskab.lib
         public void FjernTlf()
         {
             displayText = "Fjern Telefon.";
+        }
+
+        public void UpdateCharge()
+        {
+
         }
     }
 }
