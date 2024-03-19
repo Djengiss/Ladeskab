@@ -16,7 +16,7 @@ namespace Ladeskab.lib
         public bool Connected { get; set; }
         public double CurrentValue { get; private set; }
 
-        public void SubscribeToEvent(UsbChargerSimulator source)
+        public void SubscribeToEvent(IUsbCharger source)
         {
             source.CurrentValueEvent += OnCurrentValueEventReceived;
         }

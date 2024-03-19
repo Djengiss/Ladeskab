@@ -9,6 +9,6 @@ namespace Ladeskab.lib.Interfaces
 
         void StartCharge();
         void StopCharge();
-        void SubscribeToEvent(UsbChargerSimulator source);
+        void SubscribeToEvent(IUsbCharger source);
     }
 }
